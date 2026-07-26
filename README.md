@@ -1,6 +1,6 @@
-# 🚀 RESTful Task API
+# 🚀 RESTful Task API with SQLite
 
-A lightweight and easy-to-use **Task Management REST API** built with **FastAPI**. This project demonstrates the implementation of complete **CRUD (Create, Read, Update, Delete)** operations using an in-memory data store.
+A lightweight and easy-to-use **Task Management REST API** built with **FastAPI** and **SQLite**. This project demonstrates complete **CRUD (Create, Read, Update, Delete)** operations with persistent data storage using SQLModel.
 
 ---
 
@@ -11,18 +11,22 @@ A lightweight and easy-to-use **Task Management REST API** built with **FastAPI*
 - ➕ Create new tasks
 - ✏️ Update existing tasks
 - 🗑️ Delete tasks
+- 💾 Persistent SQLite database
+- 🗄️ Automatic database and table creation
+- 🌱 Inserts sample tasks only on the first run
 - ❤️ Health Check endpoint
 - 📖 Interactive Swagger Documentation
-- ⚡ Fast and lightweight FastAPI application
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Python 3.12**
-- **FastAPI**
-- **Uvicorn**
-- **Pydantic**
+- Python 3.12
+- FastAPI
+- SQLModel
+- SQLite
+- Uvicorn
+- Pydantic
 
 ---
 
@@ -31,50 +35,53 @@ A lightweight and easy-to-use **Task Management REST API** built with **FastAPI*
 ```text
 TaskAPI/
 │── main.py
+│── database.py
+│── models.py
 │── requirements.txt
 │── README.md
 │── .gitignore
-└── venv/        # Local virtual environment (not uploaded)
+│── tasks.db          # Created automatically
+└── venv/             # Local virtual environment (not uploaded)
 ```
 
 ---
 
 ## 🚀 Getting Started
 
-### 1️⃣ Clone the Repository
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/<your-username>/TaskAPI.git
 cd TaskAPI
 ```
 
-### 2️⃣ Create Virtual Environment
+### 2. Create Virtual Environment
 
 ```bash
 python -m venv venv
 ```
 
-### 3️⃣ Activate Virtual Environment
+### 3. Activate Virtual Environment
 
-**Windows (PowerShell)**
+Windows (PowerShell)
 
 ```powershell
 .\venv\Scripts\Activate.ps1
 ```
 
-**Windows (CMD)**
+Windows (CMD)
 
 ```cmd
 venv\Scripts\activate
 ```
 
-### 4️⃣ Install Dependencies
+### 4. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 5️⃣ Run the Server
+### 5. Run the Server
 
 ```bash
 uvicorn main:app --reload
@@ -118,7 +125,7 @@ POST /tasks
 
 ```json
 {
-    "title": "Learn FastAPI"
+    "title": "Learn SQLite"
 }
 ```
 
@@ -127,14 +134,34 @@ POST /tasks
 ```json
 {
     "id": 4,
-    "title": "Learn FastAPI",
+    "title": "Learn SQLite",
     "done": false
 }
 ```
 
 ---
 
-## 💻 Run the Project
+## 💾 Database
+
+This project uses **SQLite** for persistent storage.
+
+- Database file: `tasks.db`
+- The database is automatically created on the first run.
+- The `tasks` table is automatically created if it does not exist.
+- Three sample tasks are inserted only when the database is empty.
+- Data persists even after restarting the server.
+
+---
+
+## 🗃️ Example SQL Query
+
+```sql
+SELECT * FROM tasks;
+```
+
+---
+
+## ▶️ Run the Project
 
 ```bash
 python -m venv venv
@@ -156,17 +183,17 @@ uvicorn main:app --reload
 
 ## 📖 Interactive Documentation
 
-After running the server, visit:
-
-**Swagger UI**
+After starting the server, open:
 
 ```
 http://127.0.0.1:8000/docs
+
 ```
 
 ---
 
-## 📷 Sample Output
+## 📷 Sample Response
+<img width="389" height="63" alt="image" src="https://github.com/user-attachments/assets/46e6083a-07dd-4731-b4ce-31e188367e35" />
 
 ### GET /tasks
 
@@ -192,18 +219,15 @@ http://127.0.0.1:8000/docs
 
 ---
 
-## ⚠️ Note
+## 📌 Notes
 
-- This project uses an **in-memory list** as the data store.
-- Data will be reset whenever the server restarts.
-- This project is designed for learning FastAPI and REST API development.
+- Uses SQLite for persistent storage.
+- CRUD operations are performed using SQLModel.
+- The API endpoints remain unchanged from the in-memory version.
+- Data survives server restarts.
 
 ---
 
 ## 👩‍💻 Author
 
 **Anuj Upadhayay**
-
----
-
-⭐ If you found this project useful, consider giving it a star.
