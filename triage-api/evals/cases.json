@@ -1,0 +1,42 @@
+[
+  {
+    "text": "I was charged $49 twice this month for the same subscription. Please refund the duplicate.",
+    "expected_category": "billing",
+    "expected_urgency": "high"
+  },
+  {
+    "text": "The CSV export on the reports page has been failing silently for two days, no error shown.",
+    "expected_category": "bug",
+    "expected_urgency": "normal"
+  },
+  {
+    "text": "Would love it if you added dark mode to the mobile app, my eyes are tired at night.",
+    "expected_category": "feature",
+    "expected_urgency": "low"
+  },
+  {
+    "text": "I can't log in anymore, it says my account was suspended but I never got an email explaining why.",
+    "expected_category": "account",
+    "expected_urgency": "high"
+  },
+  {
+    "text": "Just wanted to say thanks, your support team was really helpful yesterday.",
+    "expected_category": "other",
+    "expected_urgency": "low"
+  },
+  {
+    "text": "Our whole team is locked out of the dashboard right now during a live client demo, urgent!!",
+    "expected_category": "bug",
+    "expected_urgency": "high"
+  },
+  {
+    "text": "Can you explain the difference between the Pro and Team pricing tiers?",
+    "expected_category": "billing",
+    "expected_urgency": "low"
+  },
+  {
+    "text": "asdkjh sldkjf ??? nothing works",
+    "expected_category": "other",
+    "expected_urgency": "normal"
+  }
+]
